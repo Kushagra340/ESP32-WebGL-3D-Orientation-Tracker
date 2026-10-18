@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPU6050 Live 3D Tracker</title>
+    <!-- Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Three.js for 3D rendering -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <header>
+            <div class="header-titles">
+                <h1>MPU6050 <span>Live 3D</span></h1>
+                <p>Real-time sensor orientation dashboard</p>
+            </div>
+            
+            <div class="controls">
+                <div class="connection-status">
+                    <span id="status-indicator" class="indicator disconnected"></span>
+                    <span id="status-text">Disconnected</span>
+                </div>
+                <div class="ip-input-container">
+                    <input type="text" id="esp-ip" placeholder="ESP32 IP (e.g. 192.168.1.100)">
+                    <button id="connect-btn">Connect</button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="canvas-container" id="canvas-container">
+                <!-- 3D Cube will be injected here by main.js -->
+            </div>
+
+            <aside class="data-panel">
+                <div class="data-card glassmorphism">
+                    <h3>Orientation (Euler)</h3>
+                    <div class="data-row"><span>Pitch:</span> <span class="val mono" id="val-pitch">0.00&deg;</span></div>
+                    <div class="data-row"><span>Roll:</span> <span class="val mono" id="val-roll">0.00&deg;</span></div>
+                    <div class="data-row"><span>Yaw:</span> <span class="val mono" id="val-yaw">0.00&deg;</span></div>
+                </div>
+                
+                <div class="data-card glassmorphism">
+                    <h3>Accelerometer (m/s&sup2;)</h3>
+                    <div class="data-row"><span>X:</span> <span class="val mono" id="val-ax">0.00</span></div>
+                    <div class="data-row"><span>Y:</span> <span class="val mono" id="val-ay">0.00</span></div>
+                    <div class="data-row"><span>Z:</span> <span class="val mono" id="val-az">0.00</span></div>
+                </div>
+
+                <div class="data-card glassmorphism">
+                    <h3>Gyroscope (rad/s)</h3>
+                    <div class="data-row"><span>X:</span> <span class="val mono" id="val-gx">0.00</span></div>
+                    <div class="data-row"><span>Y:</span> <span class="val mono" id="val-gy">0.00</span></div>
+                    <div class="data-row"><span>Z:</span> <span class="val mono" id="val-gz">0.00</span></div>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

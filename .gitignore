@@ -1,0 +1,9 @@
+# Editor and OS
+.DS_Store
+Thumbs.db
+*.swp
+
+# Large media files — upload to GitHub Releases instead
+*.mp4
+*.mov
+*.avi
